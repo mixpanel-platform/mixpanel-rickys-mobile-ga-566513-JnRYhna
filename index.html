@@ -76,10 +76,10 @@
           var eventName = eventSelect.MPEventSelect('value'),
               eventNameTwo = eventSelectTwo.MPEventSelect('value'),
               propName  = propSelect.MPPropertySelect('value'),
-              propNameTwo = propSelectTwo.MPPropertySelect('value')
+              propNameTwo = propSelectTwo.MPPropertySelect('value'),
               dateRange = dateSelect.MPDatepicker('value'),
               dateRangeTwo = dateSelectTwo.MPDatepicker('value'),
-              typeName  = typeSelect.MPSelect('value')
+              typeName  = typeSelect.MPSelect('value'),
               typeNameTwo = typeSelect.MPSelect('value');
               
               
@@ -94,7 +94,7 @@
               'type': typeName
             });  
               
-          if (eventName && eventNameTwo && propName && propNameTwo && typeSelectTwo) {
+          if (eventName && eventNameTwo && propName && propNameTwo &&) {
             MP.api.segment(eventName, propName, eventOne_params).done(function(resultOne) {
               totalData = {};
               var queryOne = resultOne.values();
