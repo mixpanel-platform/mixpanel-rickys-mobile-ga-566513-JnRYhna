@@ -110,8 +110,8 @@
                   totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
-                eventGraph.MPChart({chartType: typeNameTwo}, 'setData', totalData);
-                //eventGraph.MPChart('setData', totalData);
+                //eventGraph.MPChart({chartType: typeNameTwo}, 'setData', totalData);
+                eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
             });
