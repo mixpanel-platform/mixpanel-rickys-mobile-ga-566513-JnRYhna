@@ -85,8 +85,8 @@
             });  
               
           if (eventName && eventNameTwo && propName && propNameTwo) {
-            MP.api.segment(eventName, propName, dateRange).done(function(resultOne) {
-              MP.api.segment(eventNameTwo, propNameTwo, dateRangeTwo).done(function(resultTwo) {
+            MP.api.segment(eventName, propName, eventOne_params).done(function(resultOne) {
+              MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
                 totalData = {};
                 var queryOne = resultOne.values();
                 var queryTwo = resultTwo.values();
