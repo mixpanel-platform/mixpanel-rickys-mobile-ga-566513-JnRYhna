@@ -86,6 +86,7 @@
               
           if (eventName && eventNameTwo && propName && propNameTwo) {
             MP.api.segment(eventName, propName, eventOne_params).done(function(resultOne) {
+              debugger;
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
                 debugger;
                 totalData = {eventName: resultOne.values(), eventNameTwo: resultTwo.values()};
