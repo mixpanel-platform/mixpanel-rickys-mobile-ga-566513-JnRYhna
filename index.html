@@ -92,7 +92,7 @@
                 var queryTwo = resultTwo.values();
                 
                 _.each(_.keys(queryOne), function(properties){
-                  var dateData = query[properties];
+                  var dateData = queryOne[properties];
                   totalData[properties] = dateData;
                   debugger
                 });
