@@ -26,6 +26,7 @@
       <div style="clear: both;"></div>
       <div id="graph"></div>
       <div id="graphTwo"></div>
+      <div id="graphThree"></div>
 
     </div>
     <div id="table"></div>
@@ -49,6 +50,7 @@
         var typeSelect  = $('#mpselect').MPSelect(options);
         var eventGraph  = $('#graph').MPChart({chartType: 'line'});
         var eventGraphTwo  = $('#graphTwo').MPChart({chartType: 'bar'});
+        var eventGraphThree  = $('#graphThree').MPChart({chartType: 'pie'});
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
@@ -104,6 +106,7 @@
                 
                 eventGraph.MPChart('setData', totalData);
                 eventGraphTwo.MPChart('setData', totalData);
+                eventGraphThree.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
             });
