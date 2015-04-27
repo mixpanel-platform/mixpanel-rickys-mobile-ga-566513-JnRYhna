@@ -89,7 +89,7 @@
               debugger;
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
                 debugger;
-                totalData = {eventName: resultOne.values(), eventNameTwo: resultTwo.values()};
+                totalData = {"First Event": resultOne.values(), "Second Event": resultTwo.values()};
                 eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
