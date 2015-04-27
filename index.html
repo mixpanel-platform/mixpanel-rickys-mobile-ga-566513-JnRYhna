@@ -74,14 +74,12 @@
           //set parameters for segmentation API
           var datesOne = getDates(dateSelect);
           var eventOne_params = $.extend({}, datesOne, {
-              'type': typeName,
-              'interval': getInterval(datesOne)
+              'type': typeName;
             });
             
           var datesTwo = getDates(dateSelectTwo);
           var eventTwo_params = $.extend({}, datesTwo, {
-              'type': typeName,
-              'interval': getInterval(datesTwo)
+              'type': typeName;
             });  
               
           if (eventName && eventNameTwo && propName && propNameTwo) {
