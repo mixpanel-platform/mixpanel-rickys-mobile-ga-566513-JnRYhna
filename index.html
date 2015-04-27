@@ -22,7 +22,7 @@
       <div id="propSelectTwo" style="float: left;"></div>
       <div id="dateSelectTwo" style="float: right;"></div><br/><br/><br/>
       
-      <div id="mpselectTwo" style="float: left;">
+      <div id="mpselectTwo" style="float: left;"></div>
       <div id="mpselect" style="float: right;"></div><br/><br/><br/>
       <div style="clear: both;"></div>
       <div id="graph"></div>
@@ -54,7 +54,7 @@
         var dateSelectTwo  = $('#dateSelectTwo').MPDatepicker();
         var typeSelect  = $('#mpselect').MPSelect(options);
         var typeSelectTwo  = $('#mpselectTwo').MPSelect(optionsTwo);
-        var eventGraph  = $('#graph').MPChart({chartType: 'line'});
+        var eventGraph  = $('#graph').MPChart({chartType: typeNameTwo});
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
