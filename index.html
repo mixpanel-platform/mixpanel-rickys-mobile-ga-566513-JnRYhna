@@ -54,7 +54,7 @@
         var dateSelectTwo  = $('#dateSelectTwo').MPDatepicker();
         var typeSelect  = $('#mpselect').MPSelect(options);
         var typeSelectTwo  = $('#mpselectTwo').MPSelect(optionsTwo);
-        var eventGraph  = $('#graph').MPChart();
+        var eventGraph  = $('#graph').MPChart({chartType: typeNameTwo});
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
@@ -94,7 +94,7 @@
               'type': typeName
             });  
               
-          if (eventName && eventNameTwo && propName && propNameTwo) {
+          if (eventName && eventNameTwo && propName && propNameTwo && typeName) {
             MP.api.segment(eventName, propName, eventOne_params).done(function(resultOne) {
               totalData = {};
               var queryOne = resultOne.values();
