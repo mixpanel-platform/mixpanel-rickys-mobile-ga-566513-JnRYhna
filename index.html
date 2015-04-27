@@ -110,7 +110,7 @@
                   totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
-                eventGraph.MPChart({chartType: 'bar'});
+                eventGraph.MPChart({chartType: typeNameTwo});
                 eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
@@ -134,6 +134,7 @@
         dateSelect.on('change', runQuery);
         dateSelectTwo.on('change', runQuery);
         typeSelect.on('change', runQuery);
+        typeSelectTwo.on('change', runQuery);
       });
     </script>
   </body>
