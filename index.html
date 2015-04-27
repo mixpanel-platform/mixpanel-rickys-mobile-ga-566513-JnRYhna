@@ -54,7 +54,7 @@
         var dateSelectTwo  = $('#dateSelectTwo').MPDatepicker();
         var typeSelect  = $('#mpselect').MPSelect(options);
         var typeSelectTwo  = $('#mpselectTwo').MPSelect(optionsTwo);
-        var eventGraph  = $('#graph').MPChart({chartType: 'line'});
+        //var eventGraph  = $('#graph').MPChart({chartType: 'line'});
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
@@ -80,7 +80,7 @@
               dateRange = dateSelect.MPDatepicker('value'),
               dateRangeTwo = dateSelectTwo.MPDatepicker('value'),
               typeName  = typeSelect.MPSelect('value'),
-              typeNameTwo = typeSelect.MPSelect('value');
+              chartName = typeSelectTwo.MPSelect('value');
               
               
           //set parameters for segmentation API
@@ -110,8 +110,13 @@
                   totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
+                 $('<div class="first"></div>').css({'width':'100%', 'float':'left'}).appendTo('body').MPChart({
+                  chartType: chartName,
+                  data: totalData
+                 });
+                
                 //eventGraph.MPChart({chartType: typeNameTwo}, 'setData', totalData);
-                eventGraph.MPChart('setData', totalData);
+                //eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
             });
