@@ -86,10 +86,17 @@
               
           if (eventName && eventNameTwo && propName && propNameTwo) {
             MP.api.segment(eventName, propName, dateRange).done(function(resultOne) {
-              debugger;
               MP.api.segment(eventNameTwo, propNameTwo, dateRangeTwo).done(function(resultTwo) {
-                debugger;
-                totalData = {"First Event": resultOne.values(), "Second Event": resultTwo.values()};
+                totalData = {};
+                var queryOne = resultOne.values();
+                var queryTwo = resultTwo.values();
+                
+                _.each(_.keys(queryOne), function(properties){
+                  var dateData = query[properties];
+                  totalData[properties] = dateData;
+                  debugger
+                });
+                
                 eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
