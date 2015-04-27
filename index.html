@@ -93,9 +93,9 @@
                   
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
                 var queryTwo = resultTwo.values();
-                _.each(_.keys(queryTwo), function(properties){
-                  var dateData = queryTwo[properties];
-                  totalData[eventNameTwo + ': ' properties] = dateData;
+                _.each(_.keys(queryTwo), function(propertiesTwo){
+                  var dateDataTwo = queryTwo[propertiesTwo];
+                  totalData[eventNameTwo + ': ' + properties] = dateDataTwo;
                 });
                 
                 eventGraph.MPChart('setData', totalData);
