@@ -95,6 +95,7 @@
               _.each(_.keys(queryOne), function(properties){
                   var dateData = queryOne[properties];
                   totalData[eventName + ': ' + properties] = dateData;
+                  debugger;
                 });
                   
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
