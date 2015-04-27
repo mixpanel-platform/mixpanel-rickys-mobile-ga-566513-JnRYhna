@@ -95,7 +95,7 @@
                 var queryTwo = resultTwo.values();
                 _.each(_.keys(queryTwo), function(propertiesTwo){
                   var dateDataTwo = queryTwo[propertiesTwo];
-                  totalData[eventNameTwo + ': ' + properties] = dateDataTwo;
+                  totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
                 eventGraph.MPChart('setData', totalData);
