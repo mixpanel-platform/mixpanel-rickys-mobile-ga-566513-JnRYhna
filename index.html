@@ -94,7 +94,11 @@
                 _.each(_.keys(queryOne), function(properties){
                   var dateData = queryOne[properties];
                   totalData[properties] = dateData;
-                  debugger
+                });
+                
+                _.each(_.keys(queryTwo), function(properties){
+                  var dateData = queryTwo[properties];
+                  totalData[properties] = dateData;
                 });
                 
                 eventGraph.MPChart('setData', totalData);
