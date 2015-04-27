@@ -91,12 +91,12 @@
                 
                 _.each(_.keys(queryOne), function(properties){
                   var dateData = queryOne[properties];
-                  totalData[properties] = dateData;
+                  totalData[properties|eventName] = dateData;
                 });
                 
                 _.each(_.keys(queryTwo), function(properties){
                   var dateData = queryTwo[properties];
-                  totalData[properties] = dateData;
+                  totalData[properties|eventNameTwo] = dateData;
                 });
                 
                 eventGraph.MPChart('setData', totalData);
