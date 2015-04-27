@@ -22,7 +22,6 @@
       <div id="propSelectTwo" style="float: left;"></div>
       <div id="dateSelectTwo" style="float: right;"></div><br/><br/><br/>
       
-      <div id="mpselectTwo" style="float: left;"></div>
       <div id="mpselect" style="float: right;"></div><br/><br/><br/>
       <div style="clear: both;"></div>
       <div id="graph"></div>
@@ -38,14 +37,7 @@
             {label: 'Average', value: 'average'}
             ]
         };
-        var optionsTwo = {
-          items: [
-            {label: 'Line', value: 'line'},
-            {label: 'Bar', value: 'bar'},
-            {label: 'Pie', value: 'pie'}
-            ]
-        };
-        
+
         var eventSelect = $('#eventSelect').MPEventSelect();
         var eventSelectTwo = $('#eventSelectTwo').MPEventSelect();
         var propSelect  = $('#propSelect').MPPropertySelect();
@@ -54,7 +46,7 @@
         var dateSelectTwo  = $('#dateSelectTwo').MPDatepicker();
         var typeSelect  = $('#mpselect').MPSelect(options);
         var typeSelectTwo  = $('#mpselectTwo').MPSelect(optionsTwo);
-        //var eventGraph  = $('#graph').MPChart({chartType: 'line'});
+        var eventGraph  = $('#graph').MPChart({chartType: 'line'});
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
@@ -79,9 +71,7 @@
               propNameTwo = propSelectTwo.MPPropertySelect('value'),
               dateRange = dateSelect.MPDatepicker('value'),
               dateRangeTwo = dateSelectTwo.MPDatepicker('value'),
-              typeName  = typeSelect.MPSelect('value'),
-              chartName = typeSelectTwo.MPSelect('value');
-              
+              typeName  = typeSelect.MPSelect('value');
               
           //set parameters for segmentation API
           var datesOne = getDates(dateSelect);
@@ -110,13 +100,7 @@
                   totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
-                 $('<div class="first"></div>').css({'width':'100%', 'float':'left'}).appendTo('body').MPChart({
-                  chartType: chartName,
-                  data: totalData
-                 });
-                
-                //eventGraph.MPChart({chartType: typeNameTwo}, 'setData', totalData);
-                //eventGraph.MPChart('setData', totalData);
+                eventGraph.MPChart('setData', totalData);
                 eventTable.MPTable('setData', totalData);
               });
             });
