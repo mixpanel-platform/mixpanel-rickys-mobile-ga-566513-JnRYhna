@@ -16,11 +16,25 @@
       <div id="by" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">by</div>
       <div id="propSelect" style="float: left;"></div>
       <div id="dateSelect" style="float: right;"></div><br/><br/><br/>
+      <div class="instructions">
+        <p style="font-size: 13px; color: rgb(95,105,131)">You may enter the property selector for Event 1. For example: ("San Francisco" in properties["$city"]) </p>
+      </div>
+      <form id="property" style="margin-bottom: 15px; height: 31px">
+        <input type="text" autofocus placeholder="Property Selector for Event 1" name="property-name-field" value="" style="color: rgb(95,105,131); height: 30px; width: 500px; padding: 0 4px; font-size: 12px; border: 1px solid rgb(201,209,219)">
+        <input type="submit" name="submit" value="Submit" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
+      </form>
       
       <div id="eventSelectTwo" style="float: left;"></div>
       <div id="byTwo" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">by</div>
       <div id="propSelectTwo" style="float: left;"></div>
       <div id="dateSelectTwo" style="float: right;"></div><br/><br/><br/>
+      <div class="instructionstwo">
+        <p style="font-size: 13px; color: rgb(95,105,131)">You may enter the property selector for Event 2.</p>
+      </div>
+      <form id="propertyTwo" style="margin-bottom: 15px; height: 31px">  
+        <input type="text" autofocus placeholder="Property Selector for Event 2" name="propTwo" value="" style="color: rgb(95,105,131); height: 30px; width: 500px; padding: 0 4px; font-size: 12px; border: 1px solid rgb(201,209,219)">
+        <input type="submit" name="submitTwo" value="Submit" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
+      </form>
       
       <div id="mpselect" style="float: right;"></div><br/><br/><br/>
       <div style="clear: both;"></div>
@@ -45,6 +59,8 @@
         var eventSelectTwo = $('#eventSelectTwo').MPEventSelect();
         var propSelect  = $('#propSelect').MPPropertySelect();
         var propSelectTwo  = $('#propSelectTwo').MPPropertySelect();
+        var propValue = '';
+        var propValueTwo = '';
         var dateSelect  = $('#dateSelect').MPDatepicker();
         var dateSelectTwo  = $('#dateSelectTwo').MPDatepicker();
         var typeSelect  = $('#mpselect').MPSelect(options);
@@ -54,6 +70,17 @@
         var eventTable  = $('#table').MPTable({
           showPercentages: true,
         });
+        $('#property').submit(function(e) {
+          e.preventDefault();
+          propValue = $('#property input:first').val();
+          runQuery();
+        });
+        $('#propertyTwo').submit(function(e) {
+          e.preventDefault();
+          propValueTwo = $('#propertyTwo input:first').val();
+          runQuery();
+        });
+        
         
         
         //convenience method for grabbing that datepicker value
@@ -80,12 +107,14 @@
           //set parameters for segmentation API
           var datesOne = getDates(dateSelect);
           var eventOne_params = $.extend({}, datesOne, {
-              'type': typeName
+              'type': typeName,
+              'where': propValue
             });
             
           var datesTwo = getDates(dateSelectTwo);
           var eventTwo_params = $.extend({}, datesTwo, {
-              'type': typeName
+              'type': typeName,
+              'where': propValueTwo
             });  
               
           if (eventName && eventNameTwo && propName && propNameTwo && typeName) {
