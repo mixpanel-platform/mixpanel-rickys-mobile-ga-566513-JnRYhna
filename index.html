@@ -23,6 +23,9 @@
         <input type="text" autofocus placeholder="Property Selector for Event 1" name="property-name-field" value="" style="color: rgb(95,105,131); height: 30px; width: 500px; padding: 0 4px; font-size: 12px; border: 1px solid rgb(201,209,219)">
         <input type="submit" name="submit" value="Submit" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
       </form>
+      <div class="confirmation">
+        <p class="confirm-text" style="color: rgb(95,105,131); font-size: 15px"></p>
+      </div>
       
       <div id="eventSelectTwo" style="float: left;"></div>
       <div id="byTwo" class="mixpanel-platform-label" style="margin-left: 10px; display: none;">by</div>
@@ -35,6 +38,9 @@
         <input type="text" autofocus placeholder="Property Selector for Event 2" name="propTwo" value="" style="color: rgb(95,105,131); height: 30px; width: 500px; padding: 0 4px; font-size: 12px; border: 1px solid rgb(201,209,219)">
         <input type="submit" name="submitTwo" value="Submit" style="font-weight: bold; color: rgb(95,105,131); font-size: 12px; height: 31px; padding: 0 10px; margin-left: 10px; border: 1px solid rgb(201,209,219); background-color: rgb(242,244,246)">
       </form>
+      <div class="confirmation">
+        <p class="confirm-textTwo" style="color: rgb(95,105,131); font-size: 15px"></p>
+      </div>
       
       <div id="mpselect" style="float: right;"></div><br/><br/><br/>
       <div style="clear: both;"></div>
@@ -82,7 +88,7 @@
         $('#propertyTwo').submit(function(e) {
           e.preventDefault();
           propValueTwo = $('#propertyTwo input:first').val();
-          $('.confirm-text').html(
+          $('.confirm-textTwo').html(
               "Property Selector for Event 2: <strong>" + propValueTwo + 
               "</strong><br>")
             .css("color", "rgb(95,105,131)");
