@@ -73,11 +73,19 @@
         $('#property').submit(function(e) {
           e.preventDefault();
           propValue = $('#property input:first').val();
+          $('.confirm-text').html(
+              "Property Selector for Event 1: <strong>" + propValue + 
+              "</strong><br>")
+            .css("color", "rgb(95,105,131)");
           runQuery();
         });
         $('#propertyTwo').submit(function(e) {
           e.preventDefault();
           propValueTwo = $('#propertyTwo input:first').val();
+          $('.confirm-text').html(
+              "Property Selector for Event 2: <strong>" + propValueTwo + 
+              "</strong><br>")
+            .css("color", "rgb(95,105,131)");
           runQuery();
         });
         
@@ -124,7 +132,6 @@
               _.each(_.keys(queryOne), function(properties){
                   var dateData = queryOne[properties];
                   totalData[eventName + ': ' + properties] = dateData;
-                  debugger;
                 });
                   
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
