@@ -137,14 +137,14 @@
               var queryOne = resultOne.values();
               _.each(_.keys(queryOne), function(properties){
                   var dateData = queryOne[properties];
-                  totalData[eventName + ': ' + properties] = dateData;
+                  totalData['A' + eventName + ': ' + properties] = dateData;
                 });
                   
               MP.api.segment(eventNameTwo, propNameTwo, eventTwo_params).done(function(resultTwo) {
                 var queryTwo = resultTwo.values();
                 _.each(_.keys(queryTwo), function(propertiesTwo){
                   var dateDataTwo = queryTwo[propertiesTwo];
-                  totalData[eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
+                  totalData['B' +eventNameTwo + ': ' + propertiesTwo] = dateDataTwo;
                 });
                 
                 eventGraph.MPChart('setData', totalData);
